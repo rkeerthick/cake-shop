@@ -1,27 +1,21 @@
 import { usersType } from "./userTypes";
 const initialState = {
-  loading: false,
   users: [],
-  error: "",
+  error: ''
 };
+
 
 const reducer = (state = initialState, action) => {
   switch (action.type) {
-    case usersType.FETCH_USER_REQUEST:
-      return {
-        ...state,
-        loading: true,
-      };
     case usersType.FETCH_USER_SUCCESS:
       return {
         ...state,
-        loading: false,
         users: action.payload,
+        error: '',
       };
     case usersType.FETCH_USER_ERROR:
       return {
         ...state,
-        loading: false,
         users: [],
         error: action.payload,
       };
